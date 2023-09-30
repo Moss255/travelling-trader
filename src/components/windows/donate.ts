@@ -12,14 +12,14 @@ class Trading extends Container<DisplayObject> {
 
         this.tradingBackground = new Sprite(tradingBackgroundTexture);
 
-        console.log(`Player Item: ${playerItem}`);
-        console.log(`Trader Item: ${traderItem}`);
+        console.log(playerItem);
+        console.log(traderItem);
 
         this.tradingBackground.eventMode = 'static';
 
         this.tradingBackground.on('pointerdown', () => {
             this.parent.emit('completeTrade', {
-                status: 'accept',
+                action: 'accept',
                 playerItem,
                 traderItem
             })

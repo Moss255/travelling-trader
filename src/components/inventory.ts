@@ -1,8 +1,8 @@
-import { Container, DisplayObject } from "pixi.js";
+import config from "../config";
 
 class Inventory {
     slots: number[];
-    constructor(private readonly parent: Container<DisplayObject>) {
+    constructor() {
         // All Inventories have 4 slots
         this.slots = [];
     }
@@ -11,7 +11,6 @@ class Inventory {
         console.log(`Adding item to player inventory ${item}`);
         this.slots.push(item);
         console.log(this.slots);
-        this.parent.emit('updateInventory');
     }
 
     swapItem(prevItem: number, newItem: number) {
@@ -19,7 +18,6 @@ class Inventory {
         const previous = this.slots.indexOf(prevItem);
         this.slots[previous] = newItem;
         console.log(this.slots);
-        this.parent.emit('updateInventory');
     }
 
     removeItem(item: number) {
@@ -27,7 +25,7 @@ class Inventory {
     }
 
     generateInventory() {
-        this.slots = Array(4).fill(Math.round(Math.random() * 10 + 1));
+        this.slots = Array(4).fill(Math.round(Math.random() * config.ITEMS.length));
         console.log('Generated Inventory', this.slots);
     }
 

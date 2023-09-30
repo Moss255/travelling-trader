@@ -10,7 +10,7 @@ class RestButton extends Sprite {
         this.x = 0;
         this.y = 50;
 
-        this.on('click', () => {
+        this.on('pointerdown', () => {
             this.parent.emit('nextDay', { action: 'rest' });
         })
     }

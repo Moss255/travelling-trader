@@ -1,17 +1,20 @@
 import { Sprite, Texture } from "pixi.js"
+import config from "../config";
 
 class Item extends Sprite {
-    constructor(itemType: number, x:number, y: number) {
-        const texture = Item.getItemTextureFromType(itemType);
+    constructor(type: number,  x:number, y: number) {
+        const texture = Item.getItemTextureFromType(type);
 
         super(texture);
 
-        this.eventMode = 'static'
+        this.x = x;
+        this.y = y;
 
     }
 
-    static getItemTextureFromType(_: number) {
-        return Texture.from('assets/typescript.svg');
+    static getItemTextureFromType(type: number) {
+        const path = config.ITEMS[type].Path
+        return Texture.from(path);
     }
 }
 

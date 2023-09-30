@@ -1,10 +1,10 @@
-import { FederatedPointerEvent, Sprite, Texture } from "pixi.js";
+import { FederatedPointerEvent } from "pixi.js";
+import Item from "./item";
 
-class Collectable extends Sprite {
+class Collectable extends Item {
     constructor(private readonly type: number, x: number, y: number) {
 
-        const texture = Collectable.getItemTextureFromType(type);
-        super(texture);
+        super(type, x, y);
 
         this.x = x;
         this.y = y;
@@ -18,10 +18,6 @@ class Collectable extends Sprite {
 
     pickUp = (_: FederatedPointerEvent) => {
         this.parent.emit('collect', { itemId: this.type });
-    }
-
-    static getItemTextureFromType(_: number) {
-        return Texture.from('assets/goldring.png');
     }
 }
 

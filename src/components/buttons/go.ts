@@ -10,7 +10,7 @@ class GoButton extends Sprite {
         this.x = 200;
         this.y = 50;
 
-        this.on('click', () => {
+        this.on('pointerdown', () => {
             this.parent.emit('nextDay', { action: 'go' });
         })
     }

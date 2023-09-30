@@ -13,7 +13,8 @@ class Trader extends Sprite {
         this.x = 200;
         this.y = 200;
 
-        this.inventory = new Inventory(this.parent);
+
+        this.inventory = new Inventory();
         this.inventory.generateInventory();
 
     }

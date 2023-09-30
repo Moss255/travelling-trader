@@ -2,11 +2,18 @@
     {
         "Item" : "Gold Ring",
         "Affect" : "NA",
-        "Rarity" : "Common"
+        "Rarity" : "Common",
+        "Money" : 100
     },
     {
         "Item" : "Water",
         "Affect" : "+5 to energy",
-        "Rarity" : "Common"
+        "Rarity" : "Common",
+        "Money" : 5
+    },
+    {
+        "Item" : "Diamond",
+        "Affect" : "NA",
+        "Money" : 200
     }
 ]

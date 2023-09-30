@@ -8,6 +8,14 @@ const app = new Application({
     resizeTo: window,
 });
 
-new Game(app);
+const scenes: any[] = [];
+
+app.stage.on('restart', () => {
+    app.stage.removeChildren();
+    scenes.pop();
+    scenes.push(new Game(app));
+})
+
+app.stage.emit('restart');
 
 document.body.appendChild(app.view as any);

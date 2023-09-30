@@ -15,7 +15,7 @@ class Player extends Sprite {
 
         this.energy = 100;
 
-        this.inventory = new Inventory(this.parent);
+        this.inventory = new Inventory();
     }
 }
 
