@@ -1,0 +1,12 @@
+[
+    {
+        "Item" : "Gold Ring",
+        "Affect" : "NA",
+        "Rarity" : "Common"
+    },
+    {
+        "Item" : "Water",
+        "Affect" : "+5 to energy",
+        "Rarity" : "Common"
+    }
+]
