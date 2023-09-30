@@ -28,7 +28,7 @@ class Inventory {
     }
 
     generateInventory() {
-        this.slots = Array(4).fill(Math.round(Math.random() * config.ITEMS.length));
+        this.slots = Array(4).fill(Math.round(Math.random() * config.ITEMS.length - 1));
         console.log('Generated Inventory', this.slots);
     }
 
