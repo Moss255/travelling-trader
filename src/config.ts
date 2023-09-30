@@ -3,8 +3,10 @@ interface Config {
     STARTING_DAY: number;
     TRADER_RARITY: number;
     POOR_MAN_RARITY: number;
+    ITEM_RARITY: number;
     KHUMS: number;
     ITEMS: ConfigItem[];
+    TIME_PERSON_SHOWN: number;
 }
 
 interface ConfigItem {
@@ -21,7 +23,9 @@ const config: Config = {
     STARTING_DAY: 1,
     TRADER_RARITY: 25,
     POOR_MAN_RARITY: 50,
+    ITEM_RARITY: 75,
     KHUMS: 0.2,
+    TIME_PERSON_SHOWN: 1000,
     ITEMS: [
         {
             Name : "Gold Bar",

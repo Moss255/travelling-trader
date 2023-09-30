@@ -4,6 +4,7 @@ import Inventory from "./inventory";
 class Player extends Sprite {
     public inventory: Inventory;
     public energy: number;
+    public 
     constructor() {
 
         let texture = Texture.from('assets/player.png');

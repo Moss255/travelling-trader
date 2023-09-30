@@ -1,11 +1,11 @@
 import { Container, DisplayObject, Sprite, Texture } from "pixi.js";
 // import Item from "../item";
 
-class Trading extends Container<DisplayObject> {
+class Donate extends Container<DisplayObject> {
     //playerItemDisplay: Sprite;
     //traderItemDisplay: Sprite;
     tradingBackground: Sprite;
-    constructor(playerItem: number, traderItem: number) {
+    constructor(playerItem: number) {
         super();
 
         let tradingBackgroundTexture = Texture.from('assets/tradingwindow.png');
@@ -13,15 +13,13 @@ class Trading extends Container<DisplayObject> {
         this.tradingBackground = new Sprite(tradingBackgroundTexture);
 
         console.log(playerItem);
-        console.log(traderItem);
 
         this.tradingBackground.eventMode = 'static';
 
         this.tradingBackground.on('pointerdown', () => {
-            this.parent.emit('completeTrade', {
-                action: 'accept',
-                playerItem,
-                traderItem
+            this.parent.emit('completeDonation', {
+                status: 'accept',
+                playerItem
             })
         })
 
@@ -35,4 +33,4 @@ class Trading extends Container<DisplayObject> {
     }
 }
 
-export default Trading;
+export default Donate;

@@ -21,7 +21,10 @@ class Inventory {
     }
 
     removeItem(item: number) {
-        this.slots = this.slots.filter(x => x === item)
+        console.log(`Removing Item ${item} from inventory`);
+        const newSlots = this.slots.filter(x => x !== item);
+        console.log(newSlots);
+        this.slots = newSlots;
     }
 
     generateInventory() {

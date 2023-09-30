@@ -5,7 +5,8 @@ import { Application } from 'pixi.js';
 
 const app = new Application({
     background: '#1099bb',
-    resizeTo: window,
+    width: window.innerWidth,
+    height: window.innerHeight
 });
 
 const scenes: any[] = [];
@@ -18,4 +19,6 @@ app.stage.on('restart', () => {
 
 app.stage.emit('restart');
 
-document.body.appendChild(app.view as any);
+
+
+document.querySelector('#app')?.appendChild(app.view as any);
