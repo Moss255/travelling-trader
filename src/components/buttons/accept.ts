@@ -1,8 +1,8 @@
 import { Texture, Sprite } from "pixi.js";
 
-class GoButton extends Sprite {
+class AcceptButton extends Sprite {
     constructor() {
-        super(Texture.from('assets/gobutton.png'))
+        super(Texture.from('assets/acceptbutton.png'))
 
         this.eventMode = 'static';
         this.cursor = 'pointer';
@@ -10,12 +10,12 @@ class GoButton extends Sprite {
         this.anchor.set(0.5);
 
         this.x = window.innerWidth / 2;
-        this.y = 350;
+        this.y = 490;
 
         this.on('pointerdown', () => {
-            this.parent.emit('nextDay', { action: 'go' });
+            this.parent.emit('accept');
         })
     }
 }
 
-export default GoButton;
+export default AcceptButton;

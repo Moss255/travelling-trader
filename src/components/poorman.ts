@@ -10,7 +10,7 @@ class Poorman extends Sprite {
         this.parent = parent;
 
         this.x = 200;
-        this.y = 200;
+        this.y = 100;
 
     }
 

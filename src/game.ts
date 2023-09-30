@@ -60,9 +60,12 @@ class Game {
         this.dayCounter.x = 200;
         this.dayCounter.y = 0;
 
+        this.dayCounter.visible = false;
+
         this.energyCounter = new Text(this.player.energy.toString());
 
         this.eventText = new Text('You start your journey', {
+            fontSize: 16,
             wordWrap: true,
             wordWrapWidth: 200
         });
@@ -70,18 +73,18 @@ class Game {
         this.eventText.anchor.set(0.5);
 
         this.eventText.x = 200;
-        this.eventText.y = 400;
+        this.eventText.y = 300;
 
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
             let sprite = new Sprite(Texture.from('assets/itemslot.png'));
             sprite.x = 100 * index;
-            sprite.y = 300;
+            sprite.y = 200;
             return sprite;
         });
 
         this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 100 * index + 15, 300 + 15);
+            return new Item(itemType, 100 * index + 15, 200 + 15);
         });
 
         // Add to stage 
@@ -127,10 +130,6 @@ class Game {
 
             this.dayCounter.text = this.days.toString();
             this.energyCounter.text = this.player.energy.toString();
-
-            if (this.days === config.MAX_DAYS) {
-                this.finishGame();
-            }
 
             return;
         }
@@ -221,6 +220,7 @@ class Game {
 
     collectItem = (e: any) => {
         this.app.stage.removeChild(...this.collectables);
+        this.collectables.pop();
         this.player.inventory.addItem(e.itemId);
         this.updateInventory();
         this.eventText.text = `You picked up a ${config.ITEMS[e.itemId].Name}`;
@@ -229,7 +229,7 @@ class Game {
     updateInventory = () => {
         this.app.stage.removeChild(...this.playerItems);
         this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 100 * index + 15, 300 + 15);
+            return new Item(itemType, 100 * index + 15, 200 + 15);
         });
         if (this.playerItems.length > 0) {
             this.app.stage.addChild(...this.playerItems);
@@ -274,7 +274,7 @@ class Game {
     createNewItem = () => {
         this.eventText.text = 'You found a item on the ground';
         console.log(`Collectables currently around ${this.collectables.length}`)
-        this.collectables.push(new Collectable(this.generateItemId(), 200, 200));
+        this.collectables.push(new Collectable(this.generateItemId()));
         this.app.stage.addChild(...this.collectables);
     }
 

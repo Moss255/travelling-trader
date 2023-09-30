@@ -12,7 +12,7 @@ class Player extends Sprite {
         super(texture);
 
         this.x = 100;
-        this.y = 100;
+        this.y = 50;
 
         this.energy = 100;
         this.kindness = 10;

@@ -2,12 +2,9 @@ import { FederatedPointerEvent } from "pixi.js";
 import Item from "./item";
 
 class Collectable extends Item {
-    constructor(private readonly type: number, x: number, y: number) {
+    constructor(private readonly type: number) {
 
-        super(type, x, y);
-
-        this.x = x;
-        this.y = y;
+        super(type, 200, 100);
 
         this.eventMode = 'static';
 

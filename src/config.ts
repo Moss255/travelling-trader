@@ -61,6 +61,20 @@ const config: Config = {
             Rarity: 'Rare',
             Money: 150,
             Path: 'assets/necklace.png'
+        },
+        {
+            Name: 'Rice',
+            Description: 'NA',
+            Rarity: 'Common',
+            Money: 50,
+            Path: 'assets/rice.png'
+        },
+        {
+            Name: 'Almond',
+            Description: 'NA',
+            Rarity: 'Common',
+            Money: 45,
+            Path: 'assets/almonds.png'
         }
     ],
 }

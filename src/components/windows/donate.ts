@@ -1,10 +1,15 @@
 import { Container, DisplayObject, Sprite, Texture } from "pixi.js";
+import AcceptButton from "../buttons/accept";
+import RejectButton from "../buttons/reject";
 // import Item from "../item";
 
 class Donate extends Container<DisplayObject> {
     //playerItemDisplay: Sprite;
     //traderItemDisplay: Sprite;
     tradingBackground: Sprite;
+    accept: AcceptButton;
+    reject: RejectButton;
+    playerItem: number;
     constructor(playerItem: number) {
         super();
 
@@ -14,22 +19,40 @@ class Donate extends Container<DisplayObject> {
 
         console.log(playerItem);
 
+        this.playerItem = playerItem;
+
         this.tradingBackground.eventMode = 'static';
 
         this.tradingBackground.on('pointerdown', () => {
-            this.parent.emit('completeDonation', {
-                status: 'accept',
-                playerItem
-            })
+            
         })
 
+        this.accept = new AcceptButton();
+        this.reject = new RejectButton();
+
+        this.on('accept', () => {
+            this.handleDonationComplete('accept');
+        });
+        this.on('reject', () => {
+            this.handleDonationComplete('reject');
+        });
+
         this.addChild(this.tradingBackground);
+        this.addChild(this.accept);
+        this.addChild(this.reject);
 
         /* this.playerItemDisplay = new Item(playerItem, 100, 100);
-        this.traderItemDisplay = new Item(traderItem, 150, 100);
 
         this.addChild(this.playerItemDisplay);
-        this.addChild(this.traderItemDisplay); */
+        
+        */
+    }
+
+    handleDonationComplete(status: string) {
+        this.parent.emit('completeDonation', {
+            status,
+            playerItem: this.playerItem
+        })
     }
 }
 
