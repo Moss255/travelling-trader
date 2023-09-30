@@ -1,5 +1,4 @@
 import { Container, DisplayObject, Sprite, Text, Texture } from "pixi.js";
-import Item from "../item";
 
 class Fail extends Container<DisplayObject> {
     //playerItemDisplay: Sprite;

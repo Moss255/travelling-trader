@@ -1,5 +1,5 @@
 import { Container, DisplayObject, Sprite, Texture } from "pixi.js";
-import Item from "../item";
+// import Item from "../item";
 
 class Trading extends Container<DisplayObject> {
     //playerItemDisplay: Sprite;

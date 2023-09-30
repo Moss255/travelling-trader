@@ -1,5 +1,4 @@
 import { Container, DisplayObject, Sprite, Text, Texture } from "pixi.js";
-import Item from "../item";
 import config from "../../config";
 
 class Final extends Container<DisplayObject> {
