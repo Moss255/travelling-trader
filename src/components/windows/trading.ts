@@ -5,8 +5,8 @@ import RejectButton from "../buttons/reject";
 // import Item from "../item";
 
 class Trading extends Container<DisplayObject> {
-    // playerItemDisplay: Item;
-    // traderItemDisplay: Item;
+    playerItemDisplay: Item;
+    traderItemDisplay: Item;
     accept: AcceptButton;
     reject: RejectButton;
     tradingBackground: Sprite;
@@ -37,23 +37,15 @@ class Trading extends Container<DisplayObject> {
             this.handleTradeComplete('reject');
         });
 
-        /* this.tradingBackground.on('pointerdown', () => {
-            this.parent.emit('completeTrade', {
-                status: 'accept',
-                playerItem,
-                traderItem
-            })
-        }) */
-
         this.addChild(this.tradingBackground);
         this.addChild(this.accept);
         this.addChild(this.reject);
 
-        /* this.playerItemDisplay = new Item(playerItem, 100, 100);
+        this.playerItemDisplay = new Item(playerItem, 100, 100);
         this.traderItemDisplay = new Item(traderItem, 150, 100);
 
         this.addChild(this.playerItemDisplay);
-        this.addChild(this.traderItemDisplay); */
+        this.addChild(this.traderItemDisplay);
     }
 
     handleTradeComplete(status: string) {
