@@ -97,6 +97,14 @@ const config: Config = {
             Rarity: 'rare',
             Money: 100,
             Path: 'assets/ruby.png'
+        },
+        {
+            Index: 8,
+            Name: 'Cotton',
+            Description: 'NA',
+            Rarity: 'common',
+            Money: 50,
+            Path: 'assets/cotton.png'
         }
     ],
 }
