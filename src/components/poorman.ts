@@ -9,7 +9,9 @@ class Poorman extends Sprite {
 
         this.parent = parent;
 
-        this.x = 200;
+        this.anchor.set(0.5);
+
+        this.x = 300;
         this.y = 100;
 
     }

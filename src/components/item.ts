@@ -7,6 +7,8 @@ class Item extends Sprite {
 
         super(texture);
 
+        this.anchor.set(0.5);
+
         this.x = x;
         this.y = y;
 

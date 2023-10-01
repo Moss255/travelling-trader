@@ -78,14 +78,15 @@ class Game {
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
             let sprite = new Sprite(Texture.from('assets/itemslot.png'));
-            sprite.x = 100 * index;
-            sprite.y = 200;
+            sprite.anchor.set(0.5);
+            sprite.x = 70 * index + 85;
+            sprite.y = 230;
             return sprite;
         });
 
-        this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 100 * index + 15, 200 + 15);
-        });
+        this.playerItems = [];
+
+
 
         // Add to stage 
 
@@ -242,7 +243,7 @@ class Game {
     updateInventory = () => {
         this.app.stage.removeChild(...this.playerItems);
         this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 100 * index + 15, 200 + 15);
+            return new Item(itemType, 70 * index + 85, 230);
         });
         if (this.playerItems.length > 0) {
             this.app.stage.addChild(...this.playerItems);
@@ -273,7 +274,7 @@ class Game {
             return 'poor-man';
         }
 
-        if (event <= config.ITEM_RARITY && this.player.inventory.slots.length >= 4) {
+        if (event <= config.ITEM_RARITY && this.player.inventory.slots.length < 4) {
             return 'item';
         }
 

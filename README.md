@@ -6,3 +6,7 @@
     - Fix Display layout
 - Items need to be more obvious (Highlight?)
 - Energy Bar needs to be more obvious
+
+## Bugs
+
+- Poor men take two items
