@@ -22,7 +22,9 @@ class Inventory {
 
     removeItem(item: number) {
         console.log(`Removing Item ${item} from inventory`);
-        const newSlots = this.slots.filter(x => x !== item);
+        const itemPosition = this.slots.indexOf(item);
+        console.log(`Items position in Array ${itemPosition}`);
+        const newSlots = this.slots.filter((slot, index) => index !== itemPosition && slot);
         console.log(newSlots);
         this.slots = newSlots;
     }
