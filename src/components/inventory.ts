@@ -30,7 +30,7 @@ class Inventory {
     }
 
     generateInventory() {
-        this.slots = Array(4).fill(Math.round(Math.random() * config.ITEMS.length - 1));
+        this.slots = Array(4).fill(Math.floor(Math.random() * config.ITEMS.length));
         console.log('Generated Inventory', this.slots);
     }
 

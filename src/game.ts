@@ -10,6 +10,8 @@ import Final from "./components/windows/final";
 import config from "./config";
 import Poorman from "./components/poorman";
 import Donate from "./components/windows/donate";
+import DaysCounter from "./components/counter/days";
+import EnergyCounter from "./components/counter/energy";
 
 
 interface NextDay {
@@ -31,8 +33,8 @@ class Game {
     app: Application;
     player: Player;
     playerItems: Item[];
-    dayCounter: Text;
-    energyCounter: Text;
+    dayCounter: DaysCounter;
+    energyCounter: EnergyCounter;
     eventText: Text;
     playerInventorySlots: Sprite[];
     windows: Container<DisplayObject>[];
@@ -55,14 +57,9 @@ class Game {
 
         this.days = config.STARTING_DAY;
 
-        this.dayCounter = new Text(this.days.toString());
+        this.dayCounter = new DaysCounter(this.days);
 
-        this.dayCounter.x = 200;
-        this.dayCounter.y = 0;
-
-        this.dayCounter.visible = false;
-
-        this.energyCounter = new Text(this.player.energy.toString());
+        this.energyCounter = new EnergyCounter(this.player.energy);
 
         this.eventText = new Text('You start your journey', {
             fontSize: 16,
@@ -77,7 +74,7 @@ class Game {
 
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
-            let sprite = new Sprite(Texture.from('assets/itemslot.png'));
+            let sprite = new Sprite(Texture.from('assets/slot.png'));
             sprite.anchor.set(0.5);
             sprite.x = 70 * index + 85;
             sprite.y = 230;
@@ -98,7 +95,6 @@ class Game {
         this.app.stage.addChild(this.energyCounter);
         this.app.stage.addChild(this.dayCounter);
         this.app.stage.addChild(...this.playerInventorySlots);
-        // this.app.stage.addChild(...this.playerItems);
         this.app.stage.addChild(this.player);
         this.app.stage.addChild(this.eventText);
 
@@ -130,9 +126,21 @@ class Game {
             return;
         }
 
+        if (e.action === 'go' && this.player.energy <= 0) {
+            this.eventText.text = 'You must rest, you have no energy';
+            this.updateInventory();
+            return;
+        } 
+
+        if (e.action === 'rest' && this.player.energy >= 100) {
+            this.eventText.text = 'You have full energy. You should continue.'
+            this.updateInventory();
+            return;
+        }
+
         if (e.action === 'rest') {
             this.days += 1;
-            this.player.energy += 20;
+            this.player.energy += 10;
             this.eventText.text = 'You rested for a day';
 
             this.updateCounters();
@@ -142,14 +150,10 @@ class Game {
             return;
         }
 
-        if (e.action === 'go' && this.player.energy <= 0) {
-            this.eventText.text = 'You must rest, you have no energy';
-            this.updateInventory();
-            return;
-        } 
+
 
         this.days += 1;
-        this.player.energy -= 20;
+        this.player.energy -= 10;
         this.eventText.text = 'You continued your journey';
 
         this.updateCounters();
@@ -253,8 +257,8 @@ class Game {
     }
 
     updateCounters = () => {
-        this.dayCounter.text = this.days.toString();
-        this.energyCounter.text = this.player.energy.toString();
+        this.dayCounter.update(this.days);
+        this.energyCounter.update(this.player.energy);
     }
 
     generateDayEvent = (): DayEvent => {

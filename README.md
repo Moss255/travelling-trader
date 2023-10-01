@@ -5,4 +5,4 @@
 - Trading and Donation windows do not display correct.
     - Fix Display layout
 - Items need to be more obvious (Highlight?)
-- Energy Bar needs to be more obvious
+- Trader can pick -1 as item id
