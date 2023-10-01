@@ -39,7 +39,7 @@ const config: Config = {
             Name : "Gold Bar",
             Description : "NA",
             Rarity : "rare",
-            Money : 100,
+            Money : 150,
             Path: 'assets/goldbar.png'
         },
         {
@@ -55,7 +55,7 @@ const config: Config = {
             Name : "Water",
             Description : "+5 to energy",
             Rarity : "common",
-            Money : 5,
+            Money : 40,
             Path: 'assets/water.png'
         },
         {
@@ -71,7 +71,7 @@ const config: Config = {
             Name: 'Necklace',
             Description: 'NA',
             Rarity: 'very-rare',
-            Money: 150,
+            Money: 300,
             Path: 'assets/necklace.png'
         },
         {
