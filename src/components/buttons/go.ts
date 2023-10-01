@@ -1,16 +1,9 @@
-import { Texture, Sprite } from "pixi.js";
+import { Texture } from "pixi.js";
+import BaseButton from "./base";
 
-class GoButton extends Sprite {
+class GoButton extends BaseButton {
     constructor() {
-        super(Texture.from('assets/gobutton.png'))
-
-        this.eventMode = 'static';
-        this.cursor = 'pointer';
-
-        this.anchor.set(0.5);
-
-        this.x = window.innerWidth / 2;
-        this.y = 350;
+        super(Texture.from('assets/gobutton.png'), window.innerWidth / 2, 350);
 
         this.on('pointerdown', () => {
             this.parent.emit('nextDay', { action: 'go' });

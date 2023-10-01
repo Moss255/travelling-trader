@@ -1,5 +1,6 @@
 import { Sprite, Texture } from "pixi.js";
 import Inventory from "./inventory";
+import config from "../config";
 
 class Player extends Sprite {
     public inventory: Inventory;
@@ -18,6 +19,19 @@ class Player extends Sprite {
         this.kindness = 10;
 
         this.inventory = new Inventory();
+    }
+
+    getItemThresholds(): string {
+        if (this.kindness > config.PLAYER_VERY_RARE_THRESHOLD) {
+            return 'very-rare';
+        }
+
+        if (this.kindness > config.PLAYER_RARE_THRESHOLD) {
+            return 'rare';
+        }
+
+        return 'common';
+        
     }
 }
 

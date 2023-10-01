@@ -1,16 +1,9 @@
-import { Texture, Sprite } from "pixi.js";
+import { Texture } from "pixi.js";
+import BaseButton from "./base";
 
-class AcceptButton extends Sprite {
+class AcceptButton extends BaseButton {
     constructor() {
-        super(Texture.from('assets/acceptbutton.png'))
-
-        this.eventMode = 'static';
-        this.cursor = 'pointer';
-
-        this.anchor.set(0.5);
-
-        this.x = window.innerWidth / 2;
-        this.y = 490;
+        super(Texture.from('assets/acceptbutton.png'), window.innerWidth / 2, 350);
 
         this.on('pointerdown', () => {
             this.parent.emit('accept');

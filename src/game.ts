@@ -119,8 +119,14 @@ class Game {
 
     progressNextDay = (e: NextDay) => {
 
-        if (this.days === config.MAX_DAYS) {
+        this.goButton.disable();
+        this.restButton.disable();
+
+        console.log(`Days Passed ${this.days}`);
+
+        if (this.days >= config.MAX_DAYS) {
             this.finishGame();
+            return;
         }
 
         if (e.action === 'rest') {
@@ -131,10 +137,16 @@ class Game {
             this.dayCounter.text = this.days.toString();
             this.energyCounter.text = this.player.energy.toString();
 
+            this.updateInventory();
+
             return;
         }
 
-
+        if (e.action === 'go' && this.player.energy <= 0) {
+            this.eventText.text = 'You must rest, you have no energy';
+            this.updateInventory();
+            return;
+        } 
 
         this.days += 1;
         this.player.energy -= 20;
@@ -158,6 +170,7 @@ class Game {
                 this.createNewTrader();
                 return;
             default:
+                this.updateInventory();
                 return;
         }
     }
@@ -177,18 +190,20 @@ class Game {
         switch (e.status) {
             case 'accept':
                 this.player.inventory.removeItem(e.playerItem);
-                this.eventText.text = `You sucessfully donated items to the less fortunate.`;
+                this.player.kindness += config.ITEMS[e.playerItem].Money;
+                this.eventText.text = `May God accept your donation.`;
                 break;
             case 'reject':
                 this.eventText.text = `You were unable to donate your items.`;
                 break;
         }
 
+        console.log(`Player Kindness ${this.player.kindness}`);
         this.updateInventory();
     }
 
     finishGame = () => {
-        let total = this.player.inventory.slots.reduce((acc, val) => acc + val)
+        let total = this.player.inventory.slots.reduce((acc, val) => acc + val, 0)
         console.log(`Item Total ${total}`);
         this.windows.push(new Final(total));
         this.app.stage.addChild(...this.windows);
@@ -234,6 +249,8 @@ class Game {
         if (this.playerItems.length > 0) {
             this.app.stage.addChild(...this.playerItems);
         }
+        this.goButton.enable();
+        this.restButton.enable();
     }
 
     generateDayEvent = (): DayEvent => {
@@ -247,11 +264,13 @@ class Game {
             return 'trader'
         }
 
+        
+
         if (event <= config.POOR_MAN_RARITY) {
             return 'poor-man';
         }
 
-        if (event <= config.ITEM_RARITY) {
+        if (event <= config.ITEM_RARITY && this.player.inventory.slots.length >= 4) {
             return 'item';
         }
 
@@ -260,7 +279,9 @@ class Game {
     }
 
     generateItemId = (): number => {
-        return Math.floor(Math.random() * config.ITEMS.length);
+        const rarity = this.player.getItemThresholds();
+        const items = config.ITEMS.filter(x => x.Rarity === rarity);
+        return items[Math.floor(Math.random() * items.length)].Index;
     }
 
     createNewTrader = () => {
@@ -272,14 +293,14 @@ class Game {
     }
 
     createNewItem = () => {
-        this.eventText.text = 'You found a item on the ground';
+        this.eventText.text = 'You found a item on the ground.';
         console.log(`Collectables currently around ${this.collectables.length}`)
         this.collectables.push(new Collectable(this.generateItemId()));
         this.app.stage.addChild(...this.collectables);
     }
 
     createNewPoorman = () => {
-        this.eventText.text = 'You encountered a poorman';
+        this.eventText.text = 'You encountered someone in need.';
         let poorman = new Poorman(this.app.stage);
         poorman.initialise(this.player.inventory);
         this.poorman.push(poorman);

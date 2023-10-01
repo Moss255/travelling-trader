@@ -1,31 +1,25 @@
-import { Container, DisplayObject, Sprite, Texture } from "pixi.js";
 import Item from "../item";
 import AcceptButton from "../buttons/accept";
 import RejectButton from "../buttons/reject";
+import BaseWindow from "./base";
 // import Item from "../item";
 
-class Trading extends Container<DisplayObject> {
+class Trading extends BaseWindow {
     playerItemDisplay: Item;
     traderItemDisplay: Item;
     accept: AcceptButton;
     reject: RejectButton;
-    tradingBackground: Sprite;
     playerItem: number;
     traderItem: number;
     constructor(playerItem: number, traderItem: number) {
         super();
 
-        let tradingBackgroundTexture = Texture.from('assets/tradingwindow.png');
-
-        this.tradingBackground = new Sprite(tradingBackgroundTexture);
 
         console.log(`Player Item: ${playerItem}`);
         console.log(`Trader Item: ${traderItem}`);
 
         this.playerItem = playerItem;
         this.traderItem = traderItem;
-
-        this.tradingBackground.eventMode = 'static';
 
         this.accept = new AcceptButton();
         this.reject = new RejectButton();
@@ -37,7 +31,6 @@ class Trading extends Container<DisplayObject> {
             this.handleTradeComplete('reject');
         });
 
-        this.addChild(this.tradingBackground);
         this.addChild(this.accept);
         this.addChild(this.reject);
 

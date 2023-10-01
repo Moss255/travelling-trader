@@ -1,16 +1,9 @@
-import { Texture, Sprite } from "pixi.js";
+import { Texture } from "pixi.js";
+import BaseButton from "./base";
 
-class RestButton extends Sprite {
+class RestButton extends BaseButton {
     constructor() {
-        super(Texture.from('assets/restbutton.png'))
-
-        this.eventMode = 'static';
-        this.cursor = 'pointer';
-
-        this.anchor.set(0.5);
-
-        this.x = window.innerWidth / 2;
-        this.y = 420;
+        super(Texture.from('assets/restbutton.png'), window.innerWidth / 2, 420);
 
         this.on('pointerdown', () => {
             this.parent.emit('nextDay', { action: 'rest' });

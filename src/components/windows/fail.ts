@@ -1,21 +1,13 @@
 import { Container, DisplayObject, Sprite, Text, Texture } from "pixi.js";
+import BaseWindow from "./base";
 
-class Fail extends Container<DisplayObject> {
-    //playerItemDisplay: Sprite;
-    //traderItemDisplay: Sprite;
-    tradingBackground: Sprite;
-
+class Fail extends BaseWindow {
     constructor(failReason: string) {
         super();
 
-        let tradingBackgroundTexture = Texture.from('assets/tradingwindow.png');
-
-        this.tradingBackground = new Sprite(tradingBackgroundTexture);
-        this.tradingBackground.eventMode = 'static';
-
-        this.addChild(this.tradingBackground);
-
         let text = new Text(failReason);
+
+        text.anchor.set(0.5);
 
         text.x = 200;
         text.y = 200;
