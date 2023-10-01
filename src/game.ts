@@ -126,13 +126,13 @@ class Game {
             return;
         }
 
-        if (e.action === 'go' && this.player.energy <= 0) {
+        if (e.action === 'go' && this.player.energy <= config.ENERGY_MIN) {
             this.eventText.text = 'You must rest, you have no energy';
             this.updateInventory();
             return;
         } 
 
-        if (e.action === 'rest' && this.player.energy >= 100) {
+        if (e.action === 'rest' && this.player.energy >= config.ENERGY_MAX) {
             this.eventText.text = 'You have full energy. You should continue.'
             this.updateInventory();
             return;
