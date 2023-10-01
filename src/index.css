@@ -1,3 +1,10 @@
+@font-face {
+    font-family: rabiul;
+    src: url(assets/fonts/rabiul.ttf);
+}
+
 body {
     margin: 0;
+    font-family: rabiul;
 }
+

@@ -8,7 +8,7 @@ class Player extends Sprite {
     public kindness: number;
     constructor() {
 
-        let texture = Texture.from('assets/player.png');
+        let texture = Texture.from('assets/images/player.png');
 
         super(texture);
 

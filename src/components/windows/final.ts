@@ -1,6 +1,7 @@
 import { Text } from "pixi.js";
 import config from "../../config";
 import BaseWindow from "./base";
+import RestartButton from "../buttons/restart";
 
 class Final extends BaseWindow {
     constructor(totalScore: number) {
@@ -17,13 +18,7 @@ class Final extends BaseWindow {
 
         this.addChild(text);
 
-        this.eventMode = 'static';
-
-        this.on('pointerdown', this.restartGame);
-    }
-
-    restartGame() {
-        this.parent.emit('restart')
+        this.addChild(new RestartButton());
     }
 }
 

@@ -4,7 +4,7 @@ import Inventory from "./inventory";
 class Trader extends Sprite {
     public inventory: Inventory;
     constructor(parent: Container<DisplayObject>) {
-        let texture = Texture.from('assets/trader.png');
+        let texture = Texture.from('assets/images/trader.png');
 
         super(texture);
 

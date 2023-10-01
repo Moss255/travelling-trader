@@ -3,7 +3,7 @@ import Inventory from "./inventory";
 
 class Poorman extends Sprite {
     constructor(parent: Container<DisplayObject>) {
-        let texture = Texture.from('assets/poorman.png');
+        let texture = Texture.from('assets/images/poorman.png');
 
         super(texture);
 

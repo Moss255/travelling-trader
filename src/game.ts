@@ -12,6 +12,7 @@ import Poorman from "./components/poorman";
 import Donate from "./components/windows/donate";
 import DaysCounter from "./components/counter/days";
 import EnergyCounter from "./components/counter/energy";
+import Slot from "./components/slot";
 
 
 interface NextDay {
@@ -61,11 +62,7 @@ class Game {
 
         this.energyCounter = new EnergyCounter(this.player.energy);
 
-        this.eventText = new Text('You start your journey', {
-            fontSize: 16,
-            wordWrap: true,
-            wordWrapWidth: 200
-        });
+        this.eventText = new Text('You start your journey', config.TEXT_STYLE);
 
         this.eventText.anchor.set(0.5);
 
@@ -74,11 +71,7 @@ class Game {
 
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
-            let sprite = new Sprite(Texture.from('assets/slot.png'));
-            sprite.anchor.set(0.5);
-            sprite.x = 70 * index + 85;
-            sprite.y = 100;
-            return sprite;
+            return new Slot(70 * index + 85, 100);
         });
 
         this.playerItems = [];
@@ -87,7 +80,7 @@ class Game {
 
         // Add to stage 
 
-        const backgroundTexture = Texture.from('assets/background.png');
+        const backgroundTexture = Texture.from('assets/images/background.png');
 
         this.app.stage.addChild(new Sprite(backgroundTexture));
         this.app.stage.addChild(this.goButton);

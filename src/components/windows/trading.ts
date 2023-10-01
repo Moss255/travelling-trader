@@ -1,12 +1,12 @@
+import { Text } from "pixi.js";
 import Item from "../item";
 import AcceptButton from "../buttons/accept";
 import RejectButton from "../buttons/reject";
 import BaseWindow from "./base";
-// import Item from "../item";
+import Slot from "../slot";
+import config from "../../config";
 
 class Trading extends BaseWindow {
-    playerItemDisplay: Item;
-    traderItemDisplay: Item;
     accept: AcceptButton;
     reject: RejectButton;
     playerItem: number;
@@ -34,11 +34,24 @@ class Trading extends BaseWindow {
         this.addChild(this.accept);
         this.addChild(this.reject);
 
-        this.traderItemDisplay = new Item(traderItem, 240, 60);
-        this.playerItemDisplay = new Item(playerItem, 90, 135);
+        const playerText = new Text(`${config.ITEMS[this.playerItem].Name} - ${config.ITEMS[this.playerItem].Money}`, config.TEXT_STYLE);
 
-        this.addChild(this.playerItemDisplay);
-        this.addChild(this.traderItemDisplay);
+        playerText.x = 240;
+        playerText.y = 60;
+
+        this.addChild(playerText);
+        this.addChild(new Slot(240, 60));
+        this.addChild(new Item(traderItem, 240, 60));
+
+        const traderText = new Text(`${config.ITEMS[this.traderItem].Name} - ${config.ITEMS[this.traderItem].Money}`, config.TEXT_STYLE);
+
+        traderText.x = 90;
+        traderText.y = 135;
+
+        this.addChild(traderText);
+        this.addChild(new Slot(90, 135));
+        this.addChild(new Item(playerItem, 90, 135));
+        
     }
 
     handleTradeComplete(status: string) {

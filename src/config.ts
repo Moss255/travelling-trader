@@ -1,3 +1,5 @@
+import { TextStyle } from "pixi.js";
+
 interface Config {
     MAX_DAYS: number;
     STARTING_DAY: number;
@@ -15,6 +17,7 @@ interface Config {
     PLAYER_COMMON_THRESHOLD: number;
     PLAYER_RARE_THRESHOLD: number;
     PLAYER_VERY_RARE_THRESHOLD: number;
+    TEXT_STYLE: Partial<TextStyle> | TextStyle;
 }
 
 interface ConfigItem {
@@ -28,6 +31,12 @@ interface ConfigItem {
 
 
 const config: Config = {
+    TEXT_STYLE: {
+        fontSize: 18,
+        wordWrap: true,
+        wordWrapWidth: 200,
+        fontFamily: 'rabiul'
+    },
     MAX_DAYS: 30,
     STARTING_DAY: 1,
     ENERGY_MAX: 10,
@@ -50,7 +59,7 @@ const config: Config = {
             Description : "NA",
             Rarity : "rare",
             Money : 150,
-            Path: 'assets/goldbar.png'
+            Path: 'assets/images/goldbar.png'
         },
         {
             Index: 1,
@@ -58,7 +67,7 @@ const config: Config = {
             Description : "NA",
             Rarity : "rare",
             Money : 100,
-            Path: 'assets/goldring.png'
+            Path: 'assets/images/goldring.png'
         },
         {
             Index: 2,
@@ -66,7 +75,7 @@ const config: Config = {
             Description : "+5 to energy",
             Rarity : "common",
             Money : 40,
-            Path: 'assets/water.png'
+            Path: 'assets/images/water.png'
         },
         {
             Index: 3,
@@ -74,7 +83,7 @@ const config: Config = {
             Description : "NA",
             Rarity: "very-rare",
             Money : 200,
-            Path: 'assets/diamond.png'
+            Path: 'assets/images/diamond.png'
         },
         {
             Index: 4,
@@ -82,7 +91,7 @@ const config: Config = {
             Description: 'NA',
             Rarity: 'very-rare',
             Money: 300,
-            Path: 'assets/necklace.png'
+            Path: 'assets/images/necklace.png'
         },
         {
             Index: 5,
@@ -90,7 +99,7 @@ const config: Config = {
             Description: 'NA',
             Rarity: 'common',
             Money: 50,
-            Path: 'assets/rice.png'
+            Path: 'assets/images/rice.png'
         },
         {
             Index: 6,
@@ -98,7 +107,7 @@ const config: Config = {
             Description: 'NA',
             Rarity: 'common',
             Money: 45,
-            Path: 'assets/almonds.png'
+            Path: 'assets/images/almonds.png'
         },
         {
             Index: 7,
@@ -106,7 +115,7 @@ const config: Config = {
             Description: 'NA',
             Rarity: 'rare',
             Money: 100,
-            Path: 'assets/ruby.png'
+            Path: 'assets/images/ruby.png'
         },
         {
             Index: 8,
@@ -114,7 +123,7 @@ const config: Config = {
             Description: 'NA',
             Rarity: 'common',
             Money: 50,
-            Path: 'assets/cotton.png'
+            Path: 'assets/images/cotton.png'
         }
     ],
 }

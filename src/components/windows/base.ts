@@ -5,7 +5,7 @@ class BaseWindow extends Container<DisplayObject> {
     constructor() {
         super();
 
-        this.background = new Sprite(Texture.from('assets/tradingwindow.png'));
+        this.background = new Sprite(Texture.from('assets/images/window.png'));
 
         this.background.anchor.set(0.5);
 
