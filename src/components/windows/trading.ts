@@ -34,8 +34,8 @@ class Trading extends BaseWindow {
         this.addChild(this.accept);
         this.addChild(this.reject);
 
-        this.playerItemDisplay = new Item(playerItem, 100, 100);
-        this.traderItemDisplay = new Item(traderItem, 150, 100);
+        this.traderItemDisplay = new Item(traderItem, 240, 60);
+        this.playerItemDisplay = new Item(playerItem, 90, 135);
 
         this.addChild(this.playerItemDisplay);
         this.addChild(this.traderItemDisplay);

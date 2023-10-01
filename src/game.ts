@@ -134,8 +134,7 @@ class Game {
             this.player.energy += 20;
             this.eventText.text = 'You rested for a day';
 
-            this.dayCounter.text = this.days.toString();
-            this.energyCounter.text = this.player.energy.toString();
+            this.updateCounters();
 
             this.updateInventory();
 
@@ -152,8 +151,7 @@ class Game {
         this.player.energy -= 20;
         this.eventText.text = 'You continued your journey';
 
-        this.dayCounter.text = this.days.toString();
-        this.energyCounter.text = this.player.energy.toString();
+        this.updateCounters();
 
         const event = this.generateDayEvent();
 
@@ -251,6 +249,11 @@ class Game {
         }
         this.goButton.enable();
         this.restButton.enable();
+    }
+
+    updateCounters = () => {
+        this.dayCounter.text = this.days.toString();
+        this.energyCounter.text = this.player.energy.toString();
     }
 
     generateDayEvent = (): DayEvent => {
