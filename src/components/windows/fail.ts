@@ -1,4 +1,4 @@
-import { Container, DisplayObject, Sprite, Text, Texture } from "pixi.js";
+import { Text } from "pixi.js";
 import BaseWindow from "./base";
 
 class Fail extends BaseWindow {

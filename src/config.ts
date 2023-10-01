@@ -23,8 +23,7 @@ interface ConfigItem {
 
 
 const config: Config = {
-    //MAX_DAYS: 30,
-    MAX_DAYS: 7,
+    MAX_DAYS: 30,
     STARTING_DAY: 1,
     TRADER_RARITY: 25,
     POOR_MAN_RARITY: 50,

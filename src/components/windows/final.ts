@@ -1,4 +1,4 @@
-import { Sprite, Text, Texture } from "pixi.js";
+import { Text } from "pixi.js";
 import config from "../../config";
 import BaseWindow from "./base";
 
