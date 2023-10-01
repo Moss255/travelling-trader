@@ -4,7 +4,7 @@ import Item from "./item";
 class Collectable extends Item {
     constructor(private readonly type: number) {
 
-        super(type, 200, 100);
+        super(type, 300, 400);
 
         this.eventMode = 'static';
 

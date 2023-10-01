@@ -70,14 +70,14 @@ class Game {
         this.eventText.anchor.set(0.5);
 
         this.eventText.x = 200;
-        this.eventText.y = 300;
+        this.eventText.y = 160;
 
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
             let sprite = new Sprite(Texture.from('assets/slot.png'));
             sprite.anchor.set(0.5);
             sprite.x = 70 * index + 85;
-            sprite.y = 230;
+            sprite.y = 100;
             return sprite;
         });
 
@@ -140,7 +140,7 @@ class Game {
 
         if (e.action === 'rest') {
             this.days += 1;
-            this.player.energy += 10;
+            this.player.energy += config.ENERGY_INCREMENT;
             this.eventText.text = 'You rested for a day';
 
             this.updateCounters();
@@ -153,7 +153,7 @@ class Game {
 
 
         this.days += 1;
-        this.player.energy -= 10;
+        this.player.energy -= config.ENERGY_INCREMENT;
         this.eventText.text = 'You continued your journey';
 
         this.updateCounters();
@@ -247,7 +247,7 @@ class Game {
     updateInventory = () => {
         this.app.stage.removeChild(...this.playerItems);
         this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 70 * index + 85, 230);
+            return new Item(itemType, 70 * index + 85, 100);
         });
         if (this.playerItems.length > 0) {
             this.app.stage.addChild(...this.playerItems);

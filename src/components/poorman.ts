@@ -12,7 +12,7 @@ class Poorman extends Sprite {
         this.anchor.set(0.5);
 
         this.x = 300;
-        this.y = 100;
+        this.y = 400;
 
     }
 

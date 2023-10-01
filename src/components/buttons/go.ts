@@ -3,7 +3,7 @@ import BaseButton from "./base";
 
 class GoButton extends BaseButton {
     constructor() {
-        super(Texture.from('assets/gobutton.png'), window.innerWidth / 2, 350);
+        super(Texture.from('assets/gobutton.png'), window.innerWidth / 2, 500);
 
         this.on('pointerdown', () => {
             this.parent.emit('nextDay', { action: 'go' });

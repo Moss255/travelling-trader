@@ -3,6 +3,9 @@ interface Config {
     STARTING_DAY: number;
     ENERGY_MIN: number;
     ENERGY_MAX: number;
+    ENERGY_INCREMENT: number;
+    ENERGY_INITIAL: number;
+    KINDNESS_INITIAL: number;
     TRADER_RARITY: number;
     POOR_MAN_RARITY: number;
     ITEM_RARITY: number;
@@ -27,8 +30,11 @@ interface ConfigItem {
 const config: Config = {
     MAX_DAYS: 30,
     STARTING_DAY: 1,
-    ENERGY_MAX: 100,
+    ENERGY_MAX: 10,
     ENERGY_MIN: 0,
+    ENERGY_INCREMENT: 1,
+    ENERGY_INITIAL: 10,
+    KINDNESS_INITIAL: 10,
     TRADER_RARITY: 25,
     POOR_MAN_RARITY: 50,
     ITEM_RARITY: 75,

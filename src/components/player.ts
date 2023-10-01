@@ -13,12 +13,12 @@ class Player extends Sprite {
         super(texture);
 
         this.x = 80;
-        this.y = 100;
+        this.y = 400;
 
         this.anchor.set(0.5);
 
-        this.energy = 100;
-        this.kindness = 10;
+        this.energy = config.ENERGY_INITIAL;
+        this.kindness = config.KINDNESS_INITIAL;
 
         this.inventory = new Inventory();
     }
