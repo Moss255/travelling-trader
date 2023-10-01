@@ -202,7 +202,7 @@ class Game {
     }
 
     finishGame = () => {
-        let total = this.player.inventory.slots.reduce((acc, val) => acc + val, 0)
+        let total = this.player.inventory.slots.reduce((acc, val) => acc + config.ITEMS[val].Money, 0)
         console.log(`Item Total ${total}`);
         this.windows.push(new Final(total));
         this.app.stage.addChild(...this.windows);
