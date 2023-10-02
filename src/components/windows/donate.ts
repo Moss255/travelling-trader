@@ -27,16 +27,20 @@ class Donate extends BaseWindow {
             this.handleDonationComplete('reject');
         });
 
+        console.log(this.x, this.y);
+
         this.addChild(this.accept);
         this.addChild(this.reject);
 
-        this.addChild(new Slot(100, 100));
-        this.addChild(new Item(playerItem, 100, 100));
+        this.addChild(new Slot(0, 0));
+        this.addChild(new Item(playerItem, 0, 0));
 
-        const text = new Text('Would you be able to donate this item', config.TEXT_STYLE);
+        const text = new Text('Would you be able to donate this item?', config.TEXT_STYLE);
 
-        text.x = 100;
-        text.y = 150;
+        text.anchor.set(0.5);
+
+        text.x = 0;
+        text.y = 70;
 
         this.addChild(text);
 

@@ -9,8 +9,11 @@ class BaseWindow extends Container<DisplayObject> {
 
         this.background.anchor.set(0.5);
 
-        this.background.x = window.innerWidth / 2;
-        this.background.y = 100;
+        this.x = window.innerWidth / 2;
+        this.y = 100;
+
+        this.background.x = 0;
+        this.background.y = 0;
 
         this.addChild(this.background);
     }

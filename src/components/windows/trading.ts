@@ -34,23 +34,29 @@ class Trading extends BaseWindow {
         this.addChild(this.accept);
         this.addChild(this.reject);
 
-        const playerText = new Text(`${config.ITEMS[this.playerItem].Name} - ${config.ITEMS[this.playerItem].Money}`, config.TEXT_STYLE);
-
-        playerText.x = 240;
-        playerText.y = 60;
-
-        this.addChild(playerText);
-        this.addChild(new Slot(240, 60));
-        this.addChild(new Item(traderItem, 240, 60));
-
         const traderText = new Text(`${config.ITEMS[this.traderItem].Name} - ${config.ITEMS[this.traderItem].Money}`, config.TEXT_STYLE);
 
-        traderText.x = 90;
-        traderText.y = 135;
+        traderText.anchor.set(0.5);
+
+        traderText.x = 80;
+        traderText.y = 20;
 
         this.addChild(traderText);
-        this.addChild(new Slot(90, 135));
-        this.addChild(new Item(playerItem, 90, 135));
+        this.addChild(new Slot(80, -30));
+        this.addChild(new Item(traderItem, 80, -30));
+
+     
+
+        const playerText = new Text(`${config.ITEMS[this.playerItem].Name} - ${config.ITEMS[this.playerItem].Money}`, config.TEXT_STYLE);
+
+        playerText.anchor.set(0.5);
+
+        playerText.x = -70;
+        playerText.y = 30;
+
+        this.addChild(playerText);
+        this.addChild(new Slot(-80, 80));
+        this.addChild(new Item(playerItem, -80, 80));
         
     }
 

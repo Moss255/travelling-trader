@@ -10,7 +10,7 @@ class EnergyCounter extends Sprite {
 
         this.anchor.set(0.5);
 
-        this.x = window.innerWidth / 2 - 40;
+        this.x = window.innerWidth / 2;
         this.y = 30;
 
         this.visible = true;

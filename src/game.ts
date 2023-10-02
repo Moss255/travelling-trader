@@ -66,12 +66,12 @@ class Game {
 
         this.eventText.anchor.set(0.5);
 
-        this.eventText.x = 200;
-        this.eventText.y = 160;
+        this.eventText.x = window.innerWidth / 2;
+        this.eventText.y = 180;
 
 
         this.playerInventorySlots = [0, 0, 0, 0].map((_, index) => {
-            return new Slot(70 * index + 85, 100);
+            return new Slot(70 * index + 85, 120);
         });
 
         this.playerItems = [];
@@ -240,7 +240,7 @@ class Game {
     updateInventory = () => {
         this.app.stage.removeChild(...this.playerItems);
         this.playerItems = this.player.inventory.slots.map((itemType, index) => {
-            return new Item(itemType, 70 * index + 85, 100);
+            return new Item(itemType, 70 * index + 85, 120);
         });
         if (this.playerItems.length > 0) {
             this.app.stage.addChild(...this.playerItems);
