@@ -19,7 +19,7 @@ app.stage.on('restart', () => {
 })
 
 sound.add('al-hajj', 'assets/audio/al-hajj.ogg');
-sound.volume('al-hajj', 0.005);
+sound.volume('al-hajj', 0.001);
 sound.play('al-hajj');
 
 app.stage.emit('restart');

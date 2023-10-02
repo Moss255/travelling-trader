@@ -25,7 +25,7 @@ class Trader extends Sprite {
         this.parent.emit('startTrade', {
             playerItem: playerInventory.pickRandomItem(),
             traderItem: this.inventory.pickRandomItem()
-        })
+        });
     }
 }
 
