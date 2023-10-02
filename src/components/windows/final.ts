@@ -9,7 +9,7 @@ class Final extends BaseWindow {
 
         totalScore -= totalScore * config.KHUMS;
 
-        let text = new Text('You have won' + totalScore);
+        let text = new Text('You have won' + totalScore, config.TEXT_STYLE);
 
         text.anchor.set(0.5);
 
@@ -19,6 +19,10 @@ class Final extends BaseWindow {
         this.addChild(text);
 
         this.addChild(new RestartButton());
+
+        this.on('restart', () => {
+            window.location.reload();
+        })
     }
 }
 
