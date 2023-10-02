@@ -16,7 +16,7 @@ class Final extends BaseWindow {
         Profit: ${totalScore}\n
         Khums: ${taxDeducation}\n
         Profit after Khums: ${taxedTotalScore}\n
-        `, config.TEXT_STYLE);
+        `, config.TEXT_STYLE_EVENT);
 
         text.anchor.set(0.5);
 

@@ -62,7 +62,7 @@ class Game {
 
         this.energyCounter = new EnergyCounter(this.player.energy);
 
-        this.eventText = new Text('You start your journey', config.TEXT_STYLE);
+        this.eventText = new Text('You start your journey', config.TEXT_STYLE_EVENT);
 
         this.eventText.anchor.set(0.5);
 

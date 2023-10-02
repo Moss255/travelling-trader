@@ -18,6 +18,7 @@ interface Config {
     PLAYER_RARE_THRESHOLD: number;
     PLAYER_VERY_RARE_THRESHOLD: number;
     TEXT_STYLE: Partial<TextStyle> | TextStyle;
+    TEXT_STYLE_EVENT: Partial<TextStyle> | TextStyle;
 }
 
 interface ConfigItem {
@@ -31,10 +32,17 @@ interface ConfigItem {
 
 
 const config: Config = {
+    TEXT_STYLE_EVENT: {
+        fontSize: 18,
+        wordWrap: true,
+        wordWrapWidth: 250,
+        fontFamily: 'Architects Daughter',
+        fontStyle: 'normal'
+    },
     TEXT_STYLE: {
         fontSize: 18,
         wordWrap: true,
-        wordWrapWidth: 280,
+        wordWrapWidth: 200,
         fontFamily: 'Architects Daughter',
         fontStyle: 'normal'
     },
