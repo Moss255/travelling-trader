@@ -1,10 +1,7 @@
-@font-face {
-    font-family: rabiul;
-    src: url(assets/fonts/rabiul.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Noto+Sans+Mono&display=swap');
 
 body {
     margin: 0;
-    font-family: rabiul;
+    font-family: 'Architects Daughter', cursive, 'Noto Sans Mono', monospace;
 }
 

@@ -35,7 +35,7 @@ const config: Config = {
         fontSize: 18,
         wordWrap: true,
         wordWrapWidth: 200,
-        fontFamily: 'rabiul'
+        fontFamily: 'Architects Daughter'
     },
     MAX_DAYS: 30,
     STARTING_DAY: 1,
