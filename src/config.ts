@@ -35,7 +35,7 @@ const config: Config = {
     TEXT_STYLE_EVENT: {
         fontSize: 18,
         wordWrap: true,
-        wordWrapWidth: 250,
+        wordWrapWidth: 280,
         fontFamily: 'Architects Daughter',
         fontStyle: 'normal'
     },

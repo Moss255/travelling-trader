@@ -20,7 +20,7 @@ class Final extends BaseWindow {
 
         text.anchor.set(0.5);
 
-        text.x = -20;
+        text.x = -40;
         text.y = 20;
 
         this.addChild(text);

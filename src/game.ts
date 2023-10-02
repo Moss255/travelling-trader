@@ -234,7 +234,7 @@ class Game {
         this.collectables.pop();
         this.player.inventory.addItem(e.itemId);
         this.updateInventory();
-        this.eventText.text = `You picked up a ${config.ITEMS[e.itemId].Name}`;
+        this.eventText.text = `You picked up ${config.ITEMS[e.itemId].Name}`;
     }
 
     updateInventory = () => {
