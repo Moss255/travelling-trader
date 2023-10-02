@@ -2,6 +2,7 @@
 import Game from './game';
 import './index.css';
 import { Application } from 'pixi.js';
+import { sound } from '@pixi/sound';
 
 const app = new Application({
     background: '#1099bb',
@@ -16,6 +17,10 @@ app.stage.on('restart', () => {
     scenes.pop();
     scenes.push(new Game(app));
 })
+
+sound.add('al-hajj', 'assets/audio/al-hajj.ogg');
+sound.volume('al-hajj', 0.005);
+sound.play('al-hajj');
 
 app.stage.emit('restart');
 
