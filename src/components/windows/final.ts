@@ -7,14 +7,21 @@ class Final extends BaseWindow {
     constructor(totalScore: number) {
         super();
 
-        totalScore -= totalScore * config.KHUMS;
 
-        let text = new Text('You have won' + totalScore, config.TEXT_STYLE);
+        const taxDeducation = totalScore * config.KHUMS;
+
+        const taxedTotalScore = totalScore - taxDeducation;
+
+        let text = new Text(`
+        Profit: ${totalScore}\n
+        Khums: ${taxDeducation}\n
+        Profit after Khums: ${taxedTotalScore}\n
+        `, config.TEXT_STYLE);
 
         text.anchor.set(0.5);
 
-        text.x = 200;
-        text.y = 200;
+        text.x = -20;
+        text.y = 20;
 
         this.addChild(text);
 

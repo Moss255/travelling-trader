@@ -3,7 +3,7 @@ import BaseButton from "./base";
 
 class RestartButton extends BaseButton {
     constructor() {
-        super(Texture.from('assets/images/restartbutton.png'), window.innerWidth / 2, 500);
+        super(Texture.from('assets/images/restartbutton.png'), 0, 400);
 
         this.on('pointerdown', () => {
             this.parent.emit('restart');

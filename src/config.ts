@@ -34,8 +34,9 @@ const config: Config = {
     TEXT_STYLE: {
         fontSize: 18,
         wordWrap: true,
-        wordWrapWidth: 200,
-        fontFamily: 'Architects Daughter'
+        wordWrapWidth: 280,
+        fontFamily: 'Architects Daughter',
+        fontStyle: 'normal'
     },
     MAX_DAYS: 30,
     STARTING_DAY: 1,
